@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col-xs-12 col-sm-4">
+    <!--<a routerLink="/servers/1">reload</a>-->
+    <div class="list-group">
+      <a
+        [queryParams] = "{allowEdit: 1, id:1223}"
+        fragment="loading"
+
+        class="list-group-item"
+        *ngFor="let server of servers"
+        [routerLink]="['/servers', server.id,'edit']">
+        {{ server.name }}
+
+      </a>
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-4">
+    <button class="btn btn-primary" (click)="onRefresh()">Refresh</button>
+    <app-edit-server></app-edit-server>
+    <hr>
+    <app-server></app-server>
+  </div>
+</div>
+
