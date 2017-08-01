@@ -19,7 +19,7 @@ export class ServersComponent implements OnInit {
   }
 
   onRefresh() {
-    this.router.navigate(['server'], {relativeTo: this.route});
+    this.router.navigate(['server'], {relativeTo: this.route, queryParamsHandling: 'preserve'});
   }
 
 }

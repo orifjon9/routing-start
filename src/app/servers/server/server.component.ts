@@ -14,7 +14,8 @@ export class ServerComponent implements OnInit, OnDestroy {
   paramSubscription: Subscription;
 
   constructor(private serversService: ServersService,
-            private route: ActivatedRoute) { }
+            private route: ActivatedRoute,
+            private router:Router) { }
 
   ngOnInit() {
     const id: number = +this.route.snapshot.params['id'];
@@ -30,6 +31,9 @@ export class ServerComponent implements OnInit, OnDestroy {
     this.paramSubscription.unsubscribe();
   }
 
+  onEdit(){
+    this.router.navigate(['edit'], {relativeTo: this.route, queryParamsHandling: 'merge'});
+  }
 
   private loadServer(id: number){
     this.server = this.serversService.getServer(id);

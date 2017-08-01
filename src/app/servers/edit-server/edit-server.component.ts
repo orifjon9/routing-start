@@ -13,19 +13,23 @@ export class EditServerComponent implements OnInit, OnDestroy {
   server: {id: number, name: string, status: string};
   serverName = '';
   serverStatus = '';
-
+  allowEdit: boolean = false;
   parameterSubscription: Subscription;
   constructor(private serversService: ServersService,
             private router: Router,
             private route: ActivatedRoute) { }
 
   ngOnInit() {
-    //const _id: number = this.route.snapshot.params['id'];
+    const id: number = +this.route.snapshot.params['id'];
 
-    this.server = this.serversService.getServer(1);
+    this.server = this.serversService.getServer(id);
     this.serverName = this.server.name;
     this.serverStatus = this.server.status;
-/*
+
+    this.route.queryParams.subscribe((params: Params)=>{
+      this.allowEdit = params['allowEdit'] === '1' ? true: false;
+    });
+    /*
     this.parameterSubscription = this.route.params.subscribe((param: Params) =>{
       const _id: number = param['id'];
 
