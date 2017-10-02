@@ -15,16 +15,15 @@ export class ServerComponent implements OnInit, OnDestroy {
 
   constructor(private serversService: ServersService,
             private route: ActivatedRoute,
-            private router:Router) { }
+            private router: Router) { }
 
   ngOnInit() {
     const id: number = +this.route.snapshot.params['id'];
     this.loadServer(id);
 
-    this.paramSubscription = this.route.params.subscribe((params:Params) =>{
+    this.paramSubscription = this.route.params.subscribe((params: Params) => {
       this.loadServer(+params['id']);
     });
-
   }
 
   ngOnDestroy() {
