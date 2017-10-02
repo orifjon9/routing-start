@@ -9,7 +9,7 @@ import {UsersComponent} from './users/users.component';
 import {HomeComponent} from './home/home.component';
 import {RouterModule, Routes} from '@angular/router';
 import {AuthGuard} from './auth-guard.service';
-import {CanDeactivateGuard} from "./can-deactivate-guard.service";
+import {CanDeactivateGuard} from './can-deactivate-guard.service';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
