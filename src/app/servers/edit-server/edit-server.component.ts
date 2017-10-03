@@ -1,10 +1,10 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 
-import { ServersService } from '../servers.service';
+import { ServersService } from '../../_services/servers.service';
 import {ActivatedRoute, CanDeactivate, Params, Router} from '@angular/router';
 import {Subscription} from 'rxjs/Subscription';
 import {Observable} from "rxjs/Observable";
-import {CanDeactivateGuard} from "../../can-deactivate-guard.service";
+import {CanDeactivateGuard} from "../../_services/can-deactivate-guard.service";
 
 @Component({
   selector: 'app-edit-server',
